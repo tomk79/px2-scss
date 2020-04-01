@@ -2,6 +2,8 @@
 
 [Pickles 2](https://pickles2.pxt.jp/) に、SCSSプロセッサー機能を追加します。
 
+[Pickles Framework 2](https://github.com/pickles2/px-fw-2.x) に内蔵されているSCSSプロセッサーの機能をベースに、結果をキャッシュして高速化する機能を追加しました。
+
 
 ## Usage - 使い方
 
@@ -31,7 +33,7 @@ $conf->funcs->processor->scss = array(
 
 ## 更新履歴 - Change log
 
-### tomk79/px2-scss v0.1.0 (リリース日未定)
+### tomk79/px2-scss v0.1.0 (2020年4月1日)
 
 - Initial Release
 
