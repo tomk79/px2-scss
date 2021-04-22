@@ -47,8 +47,9 @@ $conf->funcs->processor->scss = array(
 
 ## 更新履歴 - Change log
 
-### tomk79/px2-scss v0.1.1 (リリース日未定)
+### tomk79/px2-scss v0.2.1, v0.1.1 (リリース日未定)
 
+- tomk79/px2-scss v0.2.x で、サポート環境を PHP 8 を含む PHP 7.3 以上に変更。 PHP 5.4 〜 7.2 へのサポートは、引き続き tomk79/px2-scss v0.1.x で継続します。
 - 外部依存パッケージのバージョンを修正。
 - オプション `enable_cache` を追加。
 
