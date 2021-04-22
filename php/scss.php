@@ -14,7 +14,7 @@ class scss{
 	public static function processor( $px, $json ){
 		$realpath_cache = $px->get_realpath_homedir();
 		$realpath_cache .= '_sys/ram/caches/px2scss/';
-		if( !is_dir($realpath_cache) ){
+		if( !$px->fs()->is_dir($realpath_cache) ){
 			$px->fs()->mkdir($realpath_cache);
 		}
 
@@ -39,7 +39,7 @@ class scss{
 			chdir( $tmp_current_dir );
 
 			// キャッシュする
-			file_put_contents($realpath_cache.$src_md5, $src);
+			$px->fs()->save_file($realpath_cache.$src_md5, $src);
 
 			$px->bowl()->replace( $src, $key );
 		}
