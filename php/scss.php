@@ -9,26 +9,35 @@ class scss{
 	/**
 	 * SASS変換処理の実行
 	 * @param object $px Picklesオブジェクト
-	 * @param object $json プラグイン設定
+	 * @param object $plugin_options プラグイン設定
 	 */
-	public static function processor( $px, $json ){
-		$realpath_cache = $px->get_realpath_homedir();
-		$realpath_cache .= '_sys/ram/caches/px2scss/';
-		if( !$px->fs()->is_dir($realpath_cache) ){
-			$px->fs()->mkdir($realpath_cache);
+	public static function processor( $px, $plugin_options ){
+		$plugin_options = (object) $plugin_options;
+		if( !property_exists($plugin_options, 'enable_cache') || is_null($plugin_options->enable_cache) ){
+			$plugin_options->enable_cache = true;
+		}
+
+		if( $plugin_options->enable_cache ){
+			$realpath_cache = $px->get_realpath_homedir();
+			$realpath_cache .= '_sys/ram/caches/px2scss/';
+			if( !$px->fs()->is_dir($realpath_cache) ){
+				$px->fs()->mkdir($realpath_cache);
+			}
 		}
 
 		foreach( $px->bowl()->get_keys() as $key ){
 			$src = $px->bowl()->pull( $key );
 
 			// キャッシュチェック
-			$src_md5 = md5($src);
-			clearstatcache();
-			if( $px->fs()->is_file($realpath_cache.$src_md5) ){
-				// キャッシュがあったらそのまま返す
-				$src = file_get_contents($realpath_cache.$src_md5);
-				$px->bowl()->replace( $src, $key );
-				continue;
+			if( $plugin_options->enable_cache ){
+				$src_md5 = md5($src);
+				clearstatcache();
+				if( $px->fs()->is_file($realpath_cache.$src_md5) ){
+					// キャッシュがあったらそのまま返す
+					$src = file_get_contents($realpath_cache.$src_md5);
+					$px->bowl()->replace( $src, $key );
+					continue;
+				}
 			}
 
 
@@ -42,7 +51,9 @@ class scss{
 			chdir( $tmp_current_dir );
 
 			// キャッシュする
-			$px->fs()->save_file($realpath_cache.$src_md5, $src);
+			if( $plugin_options->enable_cache ){
+				$px->fs()->save_file($realpath_cache.$src_md5, $src);
+			}
 
 			$px->bowl()->replace( $src, $key );
 		}

@@ -30,12 +30,27 @@ $conf->funcs->processor->scss = array(
 ```
 
 
+## Options - オプション
+
+```php
+$conf->funcs->processor->scss = array(
+    // SCSS文法を処理する
+    'tomk79\pickles2\px2scss\scss::processor('.json_encode([
+        'enable_cache' => true, // キャッシュを有効にする (true = 有効, false = 無効, デフォルトは true)
+    ]).')' ,
+
+    // css のデフォルトの処理を追加
+    $conf->funcs->processor->css ,
+);
+```
+
 
 ## 更新履歴 - Change log
 
 ### tomk79/px2-scss v0.1.1 (リリース日未定)
 
 - 外部依存パッケージのバージョンを修正。
+- オプション `enable_cache` を追加。
 
 ### tomk79/px2-scss v0.1.0 (2020年4月1日)
 
