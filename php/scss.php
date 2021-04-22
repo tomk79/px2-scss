@@ -33,9 +33,12 @@ class scss{
 
 
 			$tmp_current_dir = realpath('./');
+
 			chdir( dirname( $_SERVER['SCRIPT_FILENAME'] ) );
+
 			$scss = new \Leafo\ScssPhp\Compiler();
 			$src = $scss->compile( $src );
+
 			chdir( $tmp_current_dir );
 
 			// キャッシュする
