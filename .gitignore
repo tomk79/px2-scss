@@ -1,5 +1,6 @@
 .DS_Store
 Thumbs.db
+.phpunit.result.cache
 composer.phar
 /vendor/
 
