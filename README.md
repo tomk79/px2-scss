@@ -47,7 +47,7 @@ $conf->funcs->processor->scss = array(
 
 ## 更新履歴 - Change log
 
-### tomk79/px2-scss v0.1.1 (リリース日未定)
+### tomk79/px2-scss v0.1.1 (2021年4月23日)
 
 - 外部依存パッケージのバージョンを修正。
 - オプション `enable_cache` を追加。
