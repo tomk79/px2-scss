@@ -3,11 +3,11 @@
  * test
  */
 
-class mainTest extends PHPUnit_Framework_TestCase{
+class mainTest extends PHPUnit\Framework\TestCase{
 	private $fs;
 	private $utils;
 
-	public function setup(){
+	public function setUp() : void{
 		mb_internal_encoding('UTF-8');
 		$this->fs = new tomk79\filesystem();
 		require_once(__DIR__.'/libs/utils.php');

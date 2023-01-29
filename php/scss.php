@@ -55,7 +55,12 @@ class scss{
 				continue;
 			}
 
-			$src = $scss->compile( $src );
+			if( method_exists( $scss, 'compileString' ) ){
+				$src = $scss->compileString( $src )->getCss();
+			}elseif( method_exists( $scss, 'compile' ) ){
+				// 古い ScssPhp への対応
+				$src = $scss->compile( $src );
+			}
 
 			chdir( $tmp_current_dir );
 
