@@ -47,7 +47,7 @@ $conf->funcs->processor->scss = array(
 
 ## 更新履歴 - Change log
 
-### tomk79/px2-scss v0.1.2 (リリース日未定)
+### tomk79/px2-scss v0.1.2 (2023年2月11日)
 
 - 内部コードの細かい修正。
 
