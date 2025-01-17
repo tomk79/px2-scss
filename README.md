@@ -49,6 +49,7 @@ $conf->funcs->processor->scss = array(
 
 ### tomk79/px2-scss v0.2.0 (リリース日未定)
 
+- サポート環境を PHP 8 を含む PHP 7.3 以上に変更。
 - 外部依存パッケージのバージョンを修正。(`leafo/scssphp` -> `scssphp/scssphp`)
 
 ### tomk79/px2-scss v0.1.2 (2023年2月11日)

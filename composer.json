@@ -16,11 +16,11 @@
     } ,
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5.4.0",
-        "scssphp/scssphp": "^1.4"
+        "php": ">=7.3.0",
+        "scssphp/scssphp": "^1.4||^2.0"
     },
     "require-dev": {
-        "pickles2/px-fw-2.x": "~2.0",
+        "pickles2/px-fw-2.x": "~2.1.11",
         "pickles2/px2-px2dthelper": "~2.0",
         "pickles2/broccoli-module-fess": "dev-develop",
         "pickles2/broccoli-module-plain-html-elements": "dev-develop",
